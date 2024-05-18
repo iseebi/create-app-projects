@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "preview": "vite preview",
-    "create-module": "hygen module new"
+    "create-module": "hypergen module new",
+    "create-component": "hypergen component new"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -43,7 +44,7 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "hygen": "^6.2.11",
+    "hypergen": "^7.0.0-rc.2",
     "prettier": "^3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
