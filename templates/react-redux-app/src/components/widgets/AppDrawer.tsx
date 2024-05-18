@@ -1,7 +1,11 @@
 import { Drawer as MuiDrawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, styled } from '@mui/material';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import HomeIcon from '@mui/icons-material/Home';
+import React from 'react';
 import { drawerWidth } from './widgetConfigs';
+
+type Props = {
+  onOpen: (path: string) => void;
+};
 
 const Drawer = styled(MuiDrawer)`
   overflow: hidden;
@@ -20,37 +24,48 @@ const DrawerContentFrame = styled('div')`
   overflow: scroll;
 `;
 
-const AppDrawer = () => {
+const MenuItem: React.FC<{
+  open?: boolean;
+  title: string;
+  icon: React.ReactNode;
+  path: string;
+  onClick: () => void;
+}> = ({ open, title, icon, path, onClick }) => (
+  <ListItem disablePadding>
+    <ListItemButton
+      href={path}
+      sx={{
+        minHeight: 48,
+        justifyContent: open ? 'initial' : 'center',
+        px: 2.5,
+      }}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick();
+      }}
+    >
+      <ListItemIcon
+        sx={{
+          minWidth: 0,
+          mr: open ? 3 : 'auto',
+          justifyContent: 'center',
+        }}
+      >
+        {icon}
+      </ListItemIcon>
+      <ListItemText>{title}</ListItemText>
+    </ListItemButton>
+  </ListItem>
+);
+
+const AppDrawer: React.FC<Props> = ({ onOpen }) => {
   const open = true;
   return (
     <Drawer variant="permanent" open={open} PaperProps={{ sx: { width: drawerWidth } }}>
       <DrawerHeader />
       <DrawerContentFrame>
         <List>
-          {[0, 1, 2, 3, 4, 5, 6].map((loopIndex) =>
-            ['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem key={`${text}_${loopIndex}`} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                </ListItemButton>
-              </ListItem>
-            )),
-          )}
+          <MenuItem open={open} icon={<HomeIcon />} path="/" title="Home" onClick={() => onOpen('/')} />
         </List>
       </DrawerContentFrame>
     </Drawer>

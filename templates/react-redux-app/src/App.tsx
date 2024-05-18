@@ -1,69 +1,20 @@
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import Root from './components/Root';
-import AppBar from './components/widgets/AppBar';
-import AppDrawer from './components/widgets/AppDrawer';
-import RouterFrame from './components/RouterFrame';
-import Page from './components/widgets/Page';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider as ReduxProvider } from 'react-redux';
+import RootContainer from './containers/RootContainer';
+import store from './configureStore';
 
 const defaultTheme = createTheme();
 
 const App = () => (
-  <>
-    <CssBaseline />
-    <ThemeProvider theme={defaultTheme}>
-      <Root>
-        <AppBar />
-        <AppDrawer />
-        <RouterFrame>
-          <Page>
-            <h2>App Content</h2>
-            <ul>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-              <li>item</li>
-            </ul>
-          </Page>
-        </RouterFrame>
-      </Root>
-    </ThemeProvider>
-  </>
+  <BrowserRouter>
+    <ReduxProvider store={store}>
+      <CssBaseline />
+      <ThemeProvider theme={defaultTheme}>
+        <RootContainer />
+      </ThemeProvider>
+    </ReduxProvider>
+  </BrowserRouter>
 );
 
 export default App;
