@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# SPAアプリケーションテンプレート
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Redux + redux-saga + TypeScript + Vite
 
-Currently, two official plugins are available:
+## 操作
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 開発モード起動
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+$ npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### ビルド
+
+```bash
+$ npm run build
+```
+
+### Reduxモジュール生成
+
+```bash
+$ npm run create:module [module-name]
+```
+
+生成後、以下の箇所に記述を追加して登録する。
+
+- `src/modules/index.ts`
+  - RootStateに追加する
+- `src/configureStore.ts`
+  - rootSagaに追加する
+  - rootReducerに追加する
+
+### コンポーネント(component + container)生成
+
+```bash
+$ npm run create:component [component-path-and-name]
+```
+
+components/ 以下のディレクトリを込みで指定する。例えば pages/HelloPage と指定すると、以下のファイルが生成される。
+
+- `src/components/pages/HelloPage/HelloPage.tsx`
+- `src/components/pages/HelloPage/HelloPageContainer.tsx`

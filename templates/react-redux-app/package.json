@@ -8,8 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "preview": "vite preview",
-    "create-module": "hypergen module new",
-    "create-component": "hypergen component new"
+    "create:module": "hypergen module new",
+    "create:component": "hypergen component new"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
