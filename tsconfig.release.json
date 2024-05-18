@@ -1,0 +1,10 @@
+{
+  "include": [
+    "src/**/*.ts"
+  ],
+  "compilerOptions": {
+    "module": "amd",
+    "moduleResolution": "node",
+    "outFile": "dist/index.js"
+  },
+}
