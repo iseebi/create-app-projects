@@ -1,16 +1,10 @@
 #!/usr/bin/env node
-const requirejs = require("requirejs");
+const { spawn } = require("child_process");
 
-// noinspection JSUnresolvedReference
-requirejs.config({
-    baseUrl: __dirname,
-    paths: {
-        index: "dist/index",
-    },
-    nodeRequire: require,
-});
-
-requirejs(["index"], (index) => {
-    /* nop */
-});
-
+const child = spawn(
+    "ts-node",
+    ["./src/index.ts"],
+    {
+        stdio: ["inherit", "inherit", "inherit"],
+    }
+);
