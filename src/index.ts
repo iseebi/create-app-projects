@@ -81,13 +81,18 @@ const updateJson = async <T>(filePath: string, update: (json: T) => T) => {
     const targetDir = path.resolve(process.cwd(), projectName);
     const sourceDir = path.resolve(getTemplatesPath(), template);
 
-    // 目的のディレクトリを作る→テンプレートをコピーする→package.jsonのnameを変更する
+    // 目的のディレクトリを作る→テンプレートをコピーする
     await createDirectory(targetDir);
     await copyFilesAndDirectories(sourceDir, targetDir);
-    await updateJson(path.join(targetDir, "package.json"), (json: { name: string }) => {
-      json.name = projectName;
-      return json;
-    });
+
+    // package.jsonのnameを変更する(テンプレートによってはスキップする)
+    if (!template.skipPackageJsonUpdate) {
+      await updateJson(path.join(targetDir, "package.json"), (json: { name: string }) => {
+        json.name = projectName;
+        return json;
+      });
+    }
+
     console.log(`Project ${projectName} created successfully`);
   }
   catch(err){
