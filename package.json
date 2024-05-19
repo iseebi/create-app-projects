@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "description": "Create app projects",
   "main": "index.js",
+  "bin": {
+    "create-app-projects": "index.js"
+  },
   "scripts": {
     "start": "ts-node src/index.ts"
   },
-  "author": "",
+  "author": "Nobuhiro Ito",
   "license": "ISC",
   "files": [
     "index.js",
