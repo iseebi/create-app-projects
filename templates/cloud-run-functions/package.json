@@ -9,7 +9,7 @@
 		"build": "tsc -p .",
 		"fmt": "biome format --write",
 		"lint": "biome lint",
-		"deploy": "gcloud functions deploy cloud-run-functions --gen2 --runtime=nodejs24 --region=asia-northeast1 --source=. --entry-point=handler --trigger-http"
+		"deploy": "gcloud functions deploy [PROJECT_ID] --gen2 --runtime=nodejs24 --region=asia-northeast1 --source=. --entry-point=handler --trigger-http"
 	},
 	"author": "",
 	"license": "ISC",

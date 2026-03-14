@@ -16,6 +16,8 @@ $ npx github:iseebi/create-app-projects
 以下のテンプレートがある。
 
 - [react-redux-app](./templates/react-redux-app/README.md): React + Redux のアプリケーション
+- [cli](./templates/cli/README.md): CLI アプリケーション
+- [cloud-run-functions](./templates/cloud-run-functions/README.md): Cloud Run Functions のアプリケーション
 
 ※今後CLIとかのテンプレートとか足したい。
 
