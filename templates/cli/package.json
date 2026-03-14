@@ -1,0 +1,19 @@
+{
+	"name": "cli",
+	"version": "1.0.0",
+	"description": "",
+	"main": "lib/index.js",
+	"scripts": {
+		"dev": "tsc -p . && node lib/index.js",
+    "build": "tsc -p .",
+		"fmt": "biome format --write",
+		"lint": "biome lint"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "2.4.7",
+		"@types/node": "^20.8.9",
+		"typescript": "^5.2.2"
+	}
+}
