@@ -1,0 +1,25 @@
+{
+	"name": "cloud-run-functions",
+	"version": "1.0.0",
+	"description": "",
+  "type": "module",
+	"main": "lib/index.js",
+	"scripts": {
+		"dev": "tsc -p . && functions-framework --target=handler",
+		"build": "tsc -p .",
+		"fmt": "biome format --write",
+		"lint": "biome lint",
+		"deploy": "gcloud functions deploy cloud-run-functions --gen2 --runtime=nodejs24 --region=asia-northeast1 --source=. --entry-point=handler --trigger-http"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@google-cloud/functions-framework": "^5.0.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.7",
+    "@types/node": "^24.1.0",
+		"typescript": "^5.2.2"
+	}
+}
+
