@@ -1,14 +1,17 @@
 {
 	"compilerOptions": {
-		"target": "es2016",
-		"lib": ["es6", "dom"],
-		"module": "commonjs",
+		"target": "ES2024",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"lib": ["ES2024"],
 		"rootDir": "src",
 		"resolveJsonModule": true,
 		"outDir": "lib",
-		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"verbatimModuleSyntax": true,
+		"declaration": false, // Set to true if you want to generate .d.ts files
+		"sourceMap": true // Set to true if you want to generate source maps for debugging
 	}
 }
